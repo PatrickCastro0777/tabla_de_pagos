@@ -9,7 +9,10 @@ class query_dashboard_payment extends Controller
 {
     public function index()
     {
-        $datos = query_BD_payment::all();//Llamar al modelo que contiene la tabla a consultar
-        return view('dashboard',compact('datos'));
+    //$datos = query_BD_payment::all();
+      $datos = query_BD_payment:: orderBy('FechaPago','asc')->get();
+      return view('dashboard',compact('datos'));
     }
+
 }
+
